@@ -20,6 +20,7 @@ body{
     position: relative;
     border: 3px solid rgb(255, 0, 106);
     box-shadow: 0 -15px 15px rgb(255 255 255 / 5%), inset 0 -15px 15px rgb(255 255 255 / 5%), 0 15px 15px rgb(0 0 0 / 40%), inset 0 15px 15px rgb(0 0 0 / 40%);
+    z-index: 1;
 }
 .clock .numbers{
     --rotate: 0deg;
@@ -31,7 +32,7 @@ body{
     transform: rotate(var(--rotate));
     font-size: 25px;
     font-weight: 700;
-    padding: 3px;
+    padding: 20px;
 }
 
 .clock .hand{
@@ -47,14 +48,14 @@ body{
 .clock .hand.hh{
     
     width: 10px;
-    height: 40%;
+    height: 30%;
     background: #000;
     z-index: 10;
 }
 .clock .hand.mm{
     
     width: 7px;
-    height: 43%;
+    height: 33%;
     background: #000;
     border-top-right-radius: 50%;
     border-top-left-radius: 50%;
@@ -63,7 +64,7 @@ body{
 .clock .hand.ss{
     
     width: 3px;
-    height: 45%;
+    height: 35%;
     background:red;
     z-index: 12;
 }
@@ -79,3 +80,22 @@ body{
     transform: translate(-50%, -50%);
     z-index: 13;
 }
+
+.clock span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background: rgb(0, 0, 0);
+    transform: translateY(-145.55px) rotate(calc(6deg * var(--i)));
+    transform-origin: 1px 145px;
+    
+}
+.clock span:nth-child(5n+1) {
+    background: red;
+    width: 5px;
+    height: 15px;
+    clip-path: polygon(100% 0, 0 0, 50% 100%);
+    transform: translateY(-145.55px) rotate(calc(6deg * var(--i)));
+  }
